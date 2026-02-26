@@ -80,7 +80,7 @@ const TEAM_DATA: TeamCategory[] = [
     accent: "#3b82f6",
     members: [
       { name: "Efe", role: "Mechanic/Technician", photo: imgEfe },
-      { name: "Samed", role: "Mechanic/Driver/Team Captain", photo: imgSamet },
+      { name: "Samed", role: "Mechanic/Driver/Captain", photo: imgSamet },
       { name: "Burak", role: "Mechanic", photo: imgBurak },
       { name: "Akın", role: "Mechanic", photo: imgAkin },
       { name: "Kayra", role: "Mechanic", photo: imgKayra },
