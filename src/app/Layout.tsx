@@ -3,11 +3,11 @@ import Navbar from "../components/layout/Navbar";
 
 export default function Layout() {
   return (
-    <>
+    <div className="relative min-h-screen overflow-x-clip">
       <Navbar />
-      <div className="pt-24">
+      <main>
         <Outlet />
-      </div>
-    </>
+      </main>
+    </div>
   );
 }

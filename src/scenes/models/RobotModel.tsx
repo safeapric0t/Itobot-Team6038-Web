@@ -1,9 +1,23 @@
-import { useGLTF } from "@react-three/drei";
+import { Clone, useGLTF } from "@react-three/drei";
 
-export default function RobotModel() {
-  const { scene } = useGLTF("/models/Astronaut.glb");
+type Vec3 = [number, number, number];
 
-  return <primitive object={scene} scale={1.2} />;
+type RobotModelProps = {
+  modelPath?: string;
+  scale?: number | Vec3;
+  rotation?: Vec3;
+  position?: Vec3;
+};
+
+export default function RobotModel({
+  modelPath = "/models/Astronaut.glb",
+  scale = 1.2,
+  rotation = [0, 0, 0],
+  position = [0, 0, 0],
+}: RobotModelProps) {
+  const gltf = useGLTF(modelPath);
+
+  return <Clone object={gltf.scene} scale={scale} rotation={rotation} position={position} />;
 }
 
 useGLTF.preload("/models/Astronaut.glb");

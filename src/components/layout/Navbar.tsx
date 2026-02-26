@@ -1,66 +1,93 @@
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
 import clsx from "clsx";
+import { NavLink } from "react-router-dom";
+
+const NAV_ITEMS = [
+  { to: "/", label: "Home" },
+  { to: "/robots", label: "Robot Museum" },
+  { to: "/team", label: "Team" },
+];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 40);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 24);
 
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navItemStyle =
-    "relative uppercase tracking-widest text-sm transition-all duration-300";
-
   return (
     <header
       className={clsx(
-        "fixed top-0 left-0 w-full z-50 transition-all duration-500",
+        "fixed inset-x-0 top-0 z-50 transition-all duration-500",
         scrolled
-          ? "bg-[#0b0f1a]/70 backdrop-blur-xl border-b border-white/10"
+          ? "border-b border-cyan-300/20 bg-slate-950/76 shadow-[0_14px_34px_rgba(3,8,20,0.44)] backdrop-blur-xl"
           : "bg-transparent"
       )}
     >
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        
-        {/*Logo*/}
-        <div className="text-white text-lg font-bold tracking-widest">
-          FRC TEAM
-        </div>
+      <div className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between px-5 md:px-8">
+        <NavLink to="/" className="group flex items-center gap-3">
+          <span className="grid h-11 w-11 place-items-center rounded-xl border border-cyan-300/40 bg-slate-900/80 text-sm font-bold tracking-[0.22em] text-cyan-200 shadow-[0_0_18px_rgba(34,211,238,0.25)]">
+            6038
+          </span>
+          <div>
+            <p className="section-title text-[11px] font-semibold uppercase text-cyan-100/80">
+              FRC Robotics
+            </p>
+            <p className="text-sm font-semibold tracking-[0.16em] text-slate-100 transition-colors group-hover:text-cyan-200">
+              Itobot Labs
+            </p>
+          </div>
+        </NavLink>
 
-        {/* Masaüstü Menü ==> */}
-        <nav className="hidden md:flex items-center gap-10 text-white">
-          <NavItem to="/" label="Home" className={navItemStyle} />
-          <NavItem to="/robots" label="Robots" className={navItemStyle} />
-          <NavItem to="/team" label="Team" className={navItemStyle} />
+        <nav className="hidden items-center gap-9 md:flex">
+          {NAV_ITEMS.map((item) => (
+            <NavItem
+              key={item.to}
+              to={item.to}
+              label={item.label}
+              className="section-title text-xs font-semibold uppercase tracking-[0.18em]"
+            />
+          ))}
         </nav>
 
-        {/*Mobil butonu ==>*/}
         <button
+          type="button"
+          aria-label="Toggle menu"
+          aria-expanded={mobileOpen}
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden text-white"
+          className="grid h-11 w-11 place-items-center rounded-xl border border-cyan-300/30 bg-slate-900/70 text-cyan-100 transition hover:border-cyan-200 md:hidden"
         >
-          ☰
+          <span className="space-y-[5px]">
+            <span className="block h-[2px] w-5 bg-current" />
+            <span className="block h-[2px] w-5 bg-current" />
+            <span className="block h-[2px] w-5 bg-current" />
+          </span>
         </button>
       </div>
 
-      {/*Mobil Menü ==> */}
       <div
         className={clsx(
-          "md:hidden overflow-hidden transition-all duration-500",
-          mobileOpen ? "max-h-60 opacity-100" : "max-h-0 opacity-0"
+          "overflow-hidden transition-all duration-500 md:hidden",
+          mobileOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
         )}
       >
-        <div className="flex flex-col items-center gap-6 py-6 bg-[#0b0f1a]/95 text-white backdrop-blur-xl">
-          <NavItem to="/" label="Home" />
-          <NavItem to="/robots" label="Robots" />
-          <NavItem to="/team" label="Team" />
+        <div className="border-t border-cyan-300/10 bg-slate-950/94 px-5 py-6 backdrop-blur-xl">
+          <nav className="flex flex-col gap-4">
+            {NAV_ITEMS.map((item) => (
+              <NavItem
+                key={item.to}
+                to={item.to}
+                label={item.label}
+                className="section-title text-sm font-semibold uppercase tracking-[0.16em]"
+                onNavigate={() => setMobileOpen(false)}
+              />
+            ))}
+          </nav>
         </div>
       </div>
     </header>
@@ -71,26 +98,36 @@ function NavItem({
   to,
   label,
   className,
+  onNavigate,
 }: {
   to: string;
   label: string;
-  className?: string;
+  className: string;
+  onNavigate?: () => void;
 }) {
   return (
     <NavLink
       to={to}
+      onClick={onNavigate}
       className={({ isActive }) =>
         clsx(
           className,
-          "hover:text-blue-400",
-          isActive && "text-blue-400"
+          "relative text-slate-200/80 transition-colors duration-300 hover:text-cyan-200",
+          isActive && "text-cyan-200"
         )
       }
     >
-      <span className="relative group">
-        {label}
-        <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
-      </span>
+      {({ isActive }) => (
+        <span className="group relative">
+          {label}
+          <span
+            className={clsx(
+              "absolute -bottom-1 left-0 h-[2px] w-0 bg-cyan-300 transition-all duration-300 group-hover:w-full",
+              isActive && "w-full"
+            )}
+          />
+        </span>
+      )}
     </NavLink>
   );
 }
