@@ -4,6 +4,9 @@ const NAV_ITEMS = [
   { to: "/", label: "Home" },
   { to: "/robots", label: "Robot Museum" },
   { to: "/team", label: "Team" },
+  { to: "/about", label: "About" },
+  { to: "/gallery", label: "Gallery" },
+  { to: "/contact", label: "Contact" },
 ];
 
 const HIGHLIGHTS = [
