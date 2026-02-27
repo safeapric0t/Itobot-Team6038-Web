@@ -32,7 +32,7 @@ export const museumRobots: MuseumRobot[] = [
     summary:
       "Designed for fast teleop cycles with a compact intake-to-shooter path and stable swerve control.",
     accent: "#4fd7ff",
-    modelPath: "/models/Astronaut.glb",
+    modelPath: "/models/result.glb",
     stagePosition: [-4.2, 0, 0],
     rotationOffset: 0.2,
     stats: [

@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import itobotLogo from "../../assets/images/itobot-logo.jpg?url";
 
 const NAV_ITEMS = [
   { to: "/", label: "Home" },
@@ -10,8 +11,14 @@ const NAV_ITEMS = [
 ];
 
 const HIGHLIGHTS = [
-  { label: "Design Philosophy", value: "Cinematic, museum-grade storytelling." },
-  { label: "Core Focus", value: "3D robots, light-driven exhibits, precision motion." },
+  {
+    label: "Design Philosophy",
+    value: "Cinematic, museum-grade storytelling.",
+  },
+  {
+    label: "Core Focus",
+    value: "3D robots, light-driven exhibits, precision motion.",
+  },
   { label: "Technology", value: "React, Three.js, TailwindCSS v4." },
 ];
 
@@ -26,7 +33,11 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-3">
               <span className="grid h-11 w-11 place-items-center rounded-xl border border-cyan-300/40 bg-slate-900/80 text-sm font-bold tracking-[0.22em] text-cyan-200 shadow-[0_0_18px_rgba(34,211,238,0.25)]">
-                6038
+                <img
+                  src={itobotLogo}
+                  alt="Team 6038 İtobot logo"
+                  className="h-full w-full object-contain rounded-lg"
+                />
               </span>
               <div>
                 <p className="section-title text-[11px] font-semibold uppercase text-cyan-100/80">
@@ -38,8 +49,8 @@ export default function Footer() {
               </div>
             </div>
             <p className="mt-4 max-w-sm text-sm text-slate-400">
-              A living robotics museum for Team 6038. Built to celebrate competition
-              history and the future we are engineering together.
+              A living robotics museum for Team 6038. Built to celebrate
+              competition history and the future we are engineering together.
             </p>
           </div>
 
@@ -66,7 +77,10 @@ export default function Footer() {
             </p>
             <div className="mt-4 space-y-3 text-sm text-slate-300">
               {HIGHLIGHTS.map((item) => (
-                <div key={item.label} className="rounded-xl border border-slate-700/60 bg-slate-900/60 p-3">
+                <div
+                  key={item.label}
+                  className="rounded-xl border border-slate-700/60 bg-slate-900/60 p-3"
+                >
                   <p className="text-[11px] uppercase tracking-[0.16em] text-cyan-100/80">
                     {item.label}
                   </p>

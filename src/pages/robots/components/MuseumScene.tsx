@@ -113,11 +113,6 @@ function MuseumFloor() {
         <planeGeometry args={[22, 12]} />
         <meshStandardMaterial color="#050b1a" metalness={0.22} roughness={0.85} />
       </mesh>
-
-      <mesh rotation-x={-Math.PI / 2} position={[0, -1.11, 0]}>
-        <ringGeometry args={[1.7, 1.8, 64]} />
-        <meshBasicMaterial color="#144176" transparent opacity={0.25} />
-      </mesh>
     </group>
   );
 }
@@ -175,7 +170,7 @@ function RobotExhibit({ robot, active, onFocusRobot }: RobotExhibitProps) {
 
       <pointLight ref={fillRef} position={[0, 1.1, 1.7]} color={robot.accent} />
 
-      <mesh rotation-x={-Math.PI / 2} position={[0, -1.01, 0]} receiveShadow>
+      <mesh position={[0, -1.01, 0]} receiveShadow>
         <cylinderGeometry args={[1.35, 1.5, 0.22, 52]} />
         <meshStandardMaterial
           color={active ? "#11254a" : "#081226"}
