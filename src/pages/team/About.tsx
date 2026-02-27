@@ -109,7 +109,7 @@ const ACHIEVEMENTS = [
   },
   {
     emoji: "👨‍🔬",
-    title: "18 Members",
+    title: "23 Members",
     desc: "Active students, plus dozens of mentors and alumni growing stronger each year.",
   },
 ];
