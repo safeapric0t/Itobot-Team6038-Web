@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import { useState } from "react";
 import itobotLogo from "../../assets/images/itobot-logo.jpg?url";
 
 const NAV_ITEMS = [
@@ -23,6 +24,24 @@ const HIGHLIGHTS = [
 ];
 
 export default function Footer() {
+  const [logoClicks, setLogoClicks] = useState(0);
+
+  const handleLogoClick = () => {
+    const newClicks = logoClicks + 1;
+    setLogoClicks(newClicks);
+
+    if (newClicks === 5) {
+      // Easter egg: Reset intro and trigger replay
+      try {
+        sessionStorage.removeItem("itobot_intro_seen_v1");
+        window.dispatchEvent(new Event("replay-intro"));
+      } catch {
+        // Ignore private-mode storage exceptions
+      }
+      setLogoClicks(0);
+    }
+  };
+
   return (
     <footer className="relative overflow-hidden border-t border-cyan-300/15 bg-slate-950/70">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_left,rgba(34,211,238,0.08),transparent_55%)]" />
@@ -34,9 +53,11 @@ export default function Footer() {
             <div className="flex items-center gap-3">
               <span className="grid h-11 w-11 place-items-center rounded-xl border border-cyan-300/40 bg-slate-900/80 text-sm font-bold tracking-[0.22em] text-cyan-200 shadow-[0_0_18px_rgba(34,211,238,0.25)]">
                 <img
+                  onClick={handleLogoClick}
                   src={itobotLogo}
                   alt="Team 6038 İtobot logo"
-                  className="h-full w-full object-contain rounded-lg"
+                  className="h-full w-full object-contain rounded-lg cursor-pointer transition-transform hover:scale-110"
+                  title={logoClicks > 0 ? `${5 - logoClicks} more clicks for easter egg!` : ""}
                 />
               </span>
               <div>

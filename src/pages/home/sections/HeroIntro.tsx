@@ -17,6 +17,18 @@ export default function HeroIntro() {
   const [closing, setClosing] = useState(false);
 
   useEffect(() => {
+    const handleReplayIntro = () => {
+      setVisible(true);
+      setClosing(false);
+    };
+
+    window.addEventListener("replay-intro", handleReplayIntro);
+    return () => {
+      window.removeEventListener("replay-intro", handleReplayIntro);
+    };
+  }, []);
+
+  useEffect(() => {
     if (!visible) {
       return;
     }
