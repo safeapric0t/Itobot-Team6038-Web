@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import clsx from "clsx";
 import { NavLink } from "react-router-dom";
+import itobotLogo from "../../assets/images/itobot-logo.jpg?url";
 
 const NAV_ITEMS = [
   { to: "/", label: "Home" },
@@ -37,7 +38,11 @@ export default function Navbar() {
       <div className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between px-5 md:px-8">
         <NavLink to="/" className="group flex items-center gap-3">
           <span className="grid h-11 w-11 place-items-center rounded-xl border border-cyan-300/40 bg-slate-900/80 text-sm font-bold tracking-[0.22em] text-cyan-200 shadow-[0_0_18px_rgba(34,211,238,0.25)]">
-            6038
+            <img 
+              src={itobotLogo} 
+              alt="Team 6038 İtobot logo" 
+              className="h-full w-full object-contain rounded-lg"
+            />
           </span>
           <div>
             <p className="section-title text-[11px] font-semibold uppercase text-cyan-100/80">
