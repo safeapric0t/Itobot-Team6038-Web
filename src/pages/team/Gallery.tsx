@@ -18,7 +18,7 @@ export default function GalleryPage() {
   }, [activeCategory]);
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[#01040a] pb-32 pt-32">
+    <section className="relative min-h-screen overflow-hidden bg-[#01040a] pb-32 pt-32 select-none">
       {/* Background HUD Elements */}
       <div className="museum-grid absolute inset-0 opacity-20 pointer-events-none" />
 
