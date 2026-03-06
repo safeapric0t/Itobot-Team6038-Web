@@ -6,7 +6,6 @@ import imgMetin from "../../assets/images/metin_men.jpg";
 import imgOzgur from "../../assets/images/ozgur_men.jpg";
 import imgOguzcan from "../../assets/images/oguzcan_men.jpg";
 import imgCipil from "../../assets/images/cipil_men.jpg";
-import imgAli from "../../assets/images/ali_men.jpg";
 import imgNecati from "../../assets/images/necati_men.jpg";
 import imgFurkan from "../../assets/images/furkan_men.jpg";
 import imgSaliha from "../../assets/images/saliha_men.jpg";
@@ -23,8 +22,14 @@ import imgEsra from "../../assets/images/esra_pr.jpg";
 import imgSevde from "../../assets/images/sevde_pr.jpg";
 import imgKaan from "../../assets/images/kaan_pr.jpg";
 import imgZilan from "../../assets/images/zilan_pr.jpg";
-import imgZeynep from "../../assets/images/zeynep_pr.jpg";
 import imgZeynepG from "../../assets/images/zeynep_g_pr.jpg";
+import isik_yaz from "../../assets/images/isik_yaz.jpg";
+import alp_yaz from "../../assets/images/alp_yaz.jpg";
+import kagan_yaz from "../../assets/images/kagan_yaz.jpg";
+import bartu_mek from "../../assets/images/bartu_mek.jpg";
+
+
+
 
 /* ────────────────────────────────────────────
    Types
@@ -60,7 +65,6 @@ const TEAM_DATA: TeamCategory[] = [
       { name: "Oğuzcan", role: "Alumni/Mentor", photo: imgOguzcan },
       { name: "Yunus", role: "Alumni/Mentor", photo: imgCipil },
       { name: "Saliha", role: "Alumni/Mentor", photo: imgSaliha },
-      { name: "Ali", role: "Mentor", photo: imgAli },
       { name: "Alp Necati", role: "Mentor", photo: imgNecati },
       { name: "Furkan", role: "Mentor", photo: imgFurkan },
     ],
@@ -72,6 +76,9 @@ const TEAM_DATA: TeamCategory[] = [
     members: [
       { name: "Hamza", role: "Software", photo: imgHamza },
       { name: "Yahya", role: "Software Captain/Driver", photo: imgYahya },
+      { name: "Işık", role: "Software", photo: isik_yaz },
+      { name: "Alp", role: "Software", photo: alp_yaz },
+      { name: "Kağan", role: "Software", photo: kagan_yaz },
     ],
   },
   {
@@ -84,6 +91,7 @@ const TEAM_DATA: TeamCategory[] = [
       { name: "Burak", role: "Mechanic", photo: imgBurak },
       { name: "Akın", role: "Mechanic", photo: imgAkin },
       { name: "Kayra", role: "Mechanic", photo: imgKayra },
+      { name: "Bartu", role: "Mechanic", photo: bartu_mek },
     ],
   },
   {
@@ -97,7 +105,6 @@ const TEAM_DATA: TeamCategory[] = [
       { name: "Sevde", role: "PR", photo: imgSevde },
       { name: "Kaan", role: "PR", photo: imgKaan },
       { name: "Zilan", role: "PR", photo: imgZilan },
-      { name: "Zeynep", role: "PR", photo: imgZeynep },
       { name: "Zeynep", role: "PR", photo: imgZeynepG },
     ],
   },
