@@ -27,7 +27,8 @@ import isik_yaz from "../../assets/images/isik_yaz.jpg";
 import alp_yaz from "../../assets/images/alp_yaz.jpg";
 import kagan_yaz from "../../assets/images/kagan_yaz.jpg";
 import bartu_mek from "../../assets/images/bartu_mek.jpg";
-
+import bora_mek from "../../assets/images/bora_mek.jpg";
+import kaan_yaz from "../../assets/images/kaan_yaz.jpeg";
 
 
 
@@ -74,11 +75,12 @@ const TEAM_DATA: TeamCategory[] = [
     label: "Yazılım",
     accent: "#22d3ee",
     members: [
-      { name: "Hamza", role: "Software", photo: imgHamza },
       { name: "Yahya", role: "Software Captain/Driver", photo: imgYahya },
+      { name: "Hamza", role: "Software", photo: imgHamza },
       { name: "Işık", role: "Software", photo: isik_yaz },
       { name: "Alp", role: "Software", photo: alp_yaz },
       { name: "Kağan", role: "Software", photo: kagan_yaz },
+      { name: "Kaan", role: "Software", photo: kaan_yaz }
     ],
   },
   {
@@ -92,6 +94,7 @@ const TEAM_DATA: TeamCategory[] = [
       { name: "Akın", role: "Mechanic", photo: imgAkin },
       { name: "Kayra", role: "Mechanic", photo: imgKayra },
       { name: "Bartu", role: "Mechanic", photo: bartu_mek },
+      { name: "Bora", role: "Mechanic", photo: bora_mek },
     ],
   },
   {
